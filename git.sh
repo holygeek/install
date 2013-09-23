@@ -4,4 +4,4 @@ make prefix=/usr/local \
     USE_LIBPCRE=YesPlease \
     NO_GETTEXT=YesPlease \
     install -j2 && \
-    make quick-install-doc
+    make prefix=/usr/local quick-install-doc
