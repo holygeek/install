@@ -1,5 +1,5 @@
 #!/bin/sh
-./configure \
+CC=clang ./configure \
     --enable-multibyte \
     --enable-pythoninterp=yes \
     --prefix=${1:-/usr/local} \
