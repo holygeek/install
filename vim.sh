@@ -1,4 +1,8 @@
 #!/bin/sh
+d=`dirname $0`
+vcs=hg
+. $d/common.sh
+${vcs}_exit_if_no_changes Vim
 CC=clang ./configure \
     --enable-multibyte \
     --enable-pythoninterp=yes \
@@ -6,4 +10,4 @@ CC=clang ./configure \
     --with-x \
     --with-features=huge &&
 make -f Makefile -j3 install &&
-echo SUCCESS
+${vcs}_update_lastbuilt
