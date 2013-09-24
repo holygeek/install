@@ -28,7 +28,7 @@ updatevim: $(vim)
 	sh $(PWD)/vim.sh
 
 updategit: $(git) $(git-manpages)
-	cd $(git-manpages) && git pull && \
+	cd $(git-manpages) && git pull --rebase && \
 	cd $(git) && git pull --rebase && \
 	sh $(PWD)/git.sh
 
