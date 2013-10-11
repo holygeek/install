@@ -20,33 +20,33 @@ repo_linux = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 
 often = updatevim updategit updatetmux
 all:    $(often)
-	
+
 # Update
 .PHONY: $(updatevim updategit updatetmux updatego updateperf)
 updatevim: $(vim)
 	cd $(vim) && hg pull -u && \
-	sh $(PWD)/vim.sh
+	sh $(CURDIR)/vim.sh
 
 updategit: $(git) $(git-manpages)
 	cd $(git-manpages) && git pull --rebase && \
 	cd $(git) && git pull --rebase && \
-	sh $(PWD)/git.sh
+	sh $(CURDIR)/git.sh
 
 updatetmux: $(tmux)
 	cd $(tmux) && git pull --rebase && \
-	sh $(PWD)/tmux.sh
+	sh $(CURDIR)/tmux.sh
 
 updatetig: $(tig)
 	cd $(tig) && git pull --rebase && \
-	sh $(PWD)/tig.sh
+	sh $(CURDIR)/tig.sh
 
 updatego: $(go)
 	cd $(go) && hg pull -u && \
-	sh $(PWD)/go.sh
+	sh $(CURDIR)/go.sh
 
 updateperf: $(linux)
 	cd $(linux)/tools/perf && git pull && \
-	sh $(PWD)/perf.sh
+	sh $(CURDIR)/perf.sh
 
 $(src_dir):
 	echo mkdir $(src_dir)
