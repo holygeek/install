@@ -6,3 +6,4 @@ case $vcs in
     *) echo "I don't grok $vcs vcs"; exit 1 ;;
 esac
 
+which linefan >/dev/null && linefan=linefan
