@@ -15,6 +15,7 @@ git_get_lastbuilt_hash() {
 }
 
 git_exit_if_no_changes() {
+    test -n "$IGNORE_LASTBUILT" && return
     hash=`git_get_lastbuilt_hash`
     if [ "`git_latest_commit_hash`" = "$hash" ]; then
 	echo "$1 is already updated"

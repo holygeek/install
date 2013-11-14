@@ -15,6 +15,7 @@ hg_get_lastbuilt_rev() {
 }
 
 hg_exit_if_no_changes() {
+    test -n "$IGNORE_LASTBUILT" && return
     rev=`hg_get_lastbuilt_rev`
     if [ "`hg_latest_commit_rev`" = "$rev" ]; then
 	echo "$1 is already updated"
