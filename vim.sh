@@ -2,7 +2,7 @@
 d=`dirname $0`
 vcs=hg
 . $d/common.sh
-${vcs}_exit_if_no_changes Vim
+test -n "$INSTALL" && ${vcs}_exit_if_no_changes Vim
 os=`uname`
 with_x=
 if [ "$os" = Linux ]; then

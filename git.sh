@@ -2,7 +2,7 @@
 d=`dirname $0`
 vcs=git 
 . $d/common.sh
-${vcs}_exit_if_no_changes Git
+test -n "$INSTALL" && ${vcs}_exit_if_no_changes Git
 $linefan make prefix=${prefix:-/usr/local} \
     CC=clang \
     USE_LIBPCRE=YesPlease \
