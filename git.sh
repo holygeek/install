@@ -7,6 +7,7 @@ $linefan make prefix=${prefix:-/usr/local} \
     CC=clang \
     USE_LIBPCRE=YesPlease \
     NO_GETTEXT=YesPlease \
-    install -j2 &&
+    $INSTALL -j2 &&
+    test -n "$INSTALL" &&
     $linefan make prefix=/usr/local quick-install-doc &&
 ${vcs}_update_lastbuilt

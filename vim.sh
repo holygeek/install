@@ -14,5 +14,5 @@ $linefan CC=clang ./configure \
     --prefix=${prefix:-/usr/local} \
     $with_x \
     --with-features=huge &&
-$linefan make -f Makefile -j3 install &&
+$linefan make -f Makefile -j4 $INSTALL &&
 ${vcs}_update_lastbuilt

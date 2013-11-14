@@ -1,10 +1,12 @@
 #!/bin/sh
 d=`dirname $0`
 prefix=
+INSTALL=install
 IGNORE_LASTBUILT=
-while getopts fp: opt
+while getopts cfp: opt
 do
     case "$opt" in
+        c) INSTALL= ;;
         f) IGNORE_LASTBUILT=t ;;
         p) prefix="$OPTARG" ;;
     esac
