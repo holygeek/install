@@ -1,10 +1,12 @@
 #!/bin/sh
 d=`dirname $0`
+prefix=
 IGNORE_LASTBUILT=
-while getopts f opt
+while getopts fp: opt
 do
     case "$opt" in
         f) IGNORE_LASTBUILT=t ;;
+        p) prefix="$OPTARG" ;;
     esac
 done
 shift `expr $OPTIND - 1`

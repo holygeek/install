@@ -11,7 +11,7 @@ fi
 $linefan CC=clang ./configure \
     --enable-multibyte \
     --enable-pythoninterp=yes \
-    --prefix=${1:-/usr/local} \
+    --prefix=${prefix:-/usr/local} \
     $with_x \
     --with-features=huge &&
 $linefan make -f Makefile -j3 install &&
