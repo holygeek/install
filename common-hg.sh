@@ -1,6 +1,6 @@
 #!/bin/sh
 
-hg_built=.hg/lastbuilt
+hg_built=`hg root`/.hg/lastbuilt
 
 hg_latest_commit_rev() {
     hg log --limit 1 --template '{rev}'

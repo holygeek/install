@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git_built=.git/lastbuilt
+git_built=`git rev-parse --git-dir`/lastbuilt
 
 git_latest_commit_hash() {
     git rev-parse HEAD
