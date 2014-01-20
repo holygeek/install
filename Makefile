@@ -1,6 +1,6 @@
 tools = git vim tmux perf go
 
-src_dir = $(HOME)/src
+src_dir = $(HOME)/code
 vim = $(src_dir)/vim
 git = $(src_dir)/git
 git-manpages = $(src_dir)/git-manpages
