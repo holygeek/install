@@ -6,3 +6,4 @@ vcs=hg
 ${vcs}_exit_if_no_changes Go
 cd src && $linefan ./all.bash &&
 ${vcs}_update_lastbuilt
+go get -u code.google.com/p/go.tools/cmd/cover
