@@ -1,4 +1,4 @@
-tools = git vim tmux perf go
+tools = git vim tmux openbox perf go
 
 src_dir = $(HOME)/code
 vim = $(src_dir)/vim
@@ -8,6 +8,7 @@ tmux = $(src_dir)/tmux
 tig = $(src_dir)/tig
 go = $(HOME)/go
 linux = $(src_dir)/linux
+openbox = $(src_dir)/openbox
 
 repo_vim = https://vim.googlecode.com/hg/
 repo_git = git://git.kernel.org/pub/scm/git/git.git
@@ -16,9 +17,10 @@ repo_tmux = git://git.code.sf.net/p/tmux/tmux-code
 repo_tig = git://github.com/jonas/tig.git
 repo_go = https://code.google.com/p/go
 repo_linux = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+repo_openbox = git://github.com/danakj/openbox.git
 
 
-often = updatevim updategit updatetmux
+often = updatevim updategit updatetmux updateopenbox
 all:    $(often)
 
 # Update
@@ -48,6 +50,10 @@ updateperf: $(linux)
 	cd $(linux)/tools/perf && git pull && \
 	sh $(CURDIR)/perf.sh
 
+updateopenbox: $(openbox)
+	cd $(openbox) && git pull && \
+	sh $(CURDIR)/openbox.sh
+
 $(src_dir):
 	echo mkdir $(src_dir)
 
@@ -69,6 +75,9 @@ $(go):
 
 $(linux):
 	@echo [CLONE] linux; git clone $(repo_linux) $@
+
+$(openbox):
+	@echo [CLONE] openbox; git clone $(repo_openbox) $@
 
 $(git-manpages):
 	echo [CLONE] git-manpages; git clone $(repo_git_manpages) $@
