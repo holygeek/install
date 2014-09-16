@@ -22,7 +22,7 @@ repo_linux = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 repo_openbox = git://github.com/danakj/openbox.git
 
 
-often = updatevim updategit updatetmux updateopenbox
+often = updatevim updategit updatetmux updateopenbox updatereptyr
 all:    $(often)
 
 # Update
