@@ -8,7 +8,8 @@ with_x=
 if [ "$os" = Linux ]; then
 	with_x=--with-x
 fi
-$linefan CC=clang ./configure \
+#$linefan CC=clang ./configure \
+$linefan ./configure \
     --enable-multibyte \
     --enable-pythoninterp=yes \
     --prefix=${prefix:-/usr/local} \
