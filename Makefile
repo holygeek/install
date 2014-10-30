@@ -10,6 +10,7 @@ tig = $(src_dir)/tig
 go = $(HOME)/go
 linux = $(src_dir)/linux
 openbox = $(src_dir)/openbox
+passwordstore = $(src_dir)/password-store
 
 repo_vim = https://vim.googlecode.com/hg/
 repo_git = git://git.kernel.org/pub/scm/git/git.git
@@ -20,13 +21,13 @@ repo_tig = git://github.com/jonas/tig.git
 repo_go = https://code.google.com/p/go
 repo_linux = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 repo_openbox = git://github.com/danakj/openbox.git
-
+repo_passwordstore = git://github.com/zx2c4/password-store.git
 
 often = updatevim updategit updatetmux updateopenbox updatereptyr
 all:    $(often)
 
 # Update
-.PHONY: $(updatevim updategit updatetmux updatego updateperf)
+.PHONY: $(updatevim updategit updatetmux updatego updateperf updatepasswordstore)
 updatevim: $(vim)
 	cd $(vim) && hg pull -u && \
 	sh $(CURDIR)/vim.sh
@@ -59,6 +60,9 @@ updateopenbox: $(openbox)
 	cd $(openbox) && git pull && \
 	sh $(CURDIR)/openbox.sh
 
+updatepasswordstore: $(passwordstore)
+	git -C $(passwordstore) pull && sh $(CURDIR)/password-store.sh
+
 $(src_dir):
 	echo mkdir $(src_dir)
 
@@ -89,6 +93,9 @@ $(openbox):
 
 $(git-manpages):
 	echo [CLONE] git-manpages; git clone $(repo_git_manpages) $@
+
+$(passwordstore):
+	echo [CLONE] password-store; git clone $(repo_passwordstore) $@
 
 ages:
 	@which age >/dev/null || { echo Need age - github.com/holygeek/age.git; exit 0; }
