@@ -38,3 +38,7 @@ case $vcs in
 esac
 
 which linefan >/dev/null && linefan="linefan -T -"
+
+if which figlet >/dev/null; then
+    figlet $(basename $(pwd))
+fi
