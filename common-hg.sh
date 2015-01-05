@@ -21,6 +21,7 @@ hg_exit_if_no_changes() {
 	echo "$1 is already updated"
 	exit 0
     fi
+    announce
 }
 
 hg_update_lastbuilt() {

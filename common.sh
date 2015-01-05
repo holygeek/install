@@ -16,6 +16,12 @@ usage() {
 "
 }
 
+announce() {
+    if which figlet >/dev/null; then
+        figlet $(basename $(pwd))
+    fi
+}
+
 d=`dirname $0`
 prefix=
 INSTALL=install
@@ -38,7 +44,3 @@ case $vcs in
 esac
 
 which linefan >/dev/null && linefan="linefan -T -"
-
-if which figlet >/dev/null; then
-    figlet $(basename $(pwd))
-fi
