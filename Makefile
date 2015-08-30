@@ -12,10 +12,10 @@ linux = $(src_dir)/linux
 openbox = $(src_dir)/openbox
 passwordstore = $(src_dir)/password-store
 
-repo_vim = https://vim.googlecode.com/hg/
+repo_vim = git@github.com:vim/vim.git
 repo_git = git://git.kernel.org/pub/scm/git/git.git
 repo_git_manpages = git://git.kernel.org/pub/scm/git/git-manpages.git
-repo_tmux = git://git.code.sf.net/p/tmux/tmux-code
+repo_tmux = git@github.com:tmux/tmux
 repo_reptyr = git://github.com/nelhage/reptyr.git
 repo_tig = git://github.com/jonas/tig.git
 repo_go = https://code.google.com/p/go
@@ -29,7 +29,7 @@ all:    $(often)
 # Update
 .PHONY: $(updatevim updategit updatetmux updatego updateperf updatepasswordstore)
 updatevim: $(vim)
-	cd $(vim) && hg pull -u && \
+	cd $(vim) && git pull --rebase && \
 	sh $(CURDIR)/vim.sh
 
 updategit: $(git) $(git-manpages)
@@ -68,7 +68,7 @@ $(src_dir):
 
 # Clone
 $(vim):
-	@echo [CLONE] vim; hg clone $(repo_vim) $@
+	@echo [CLONE] vim; git clone $(repo_vim) $@
 
 $(git):
 	@echo [CLONE] git; git clone $(repo_git) $@

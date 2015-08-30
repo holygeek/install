@@ -1,6 +1,6 @@
 #!/bin/sh
 d=`dirname $0`
-vcs=hg
+vcs=git
 . $d/common.sh
 test -n "$INSTALL" && ${vcs}_exit_if_no_changes Vim
 os=`uname`
