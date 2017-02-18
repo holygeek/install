@@ -1,11 +1,10 @@
-tools = git /usr/local/bin/vim tmux reptyr openbox perf go
+tools = git /usr/local/bin/vim tmux openbox perf go
 
 src_dir = $(HOME)/code
 vim = $(src_dir)/vim
 git = $(src_dir)/git
 git-manpages = $(src_dir)/git-manpages
 tmux = $(src_dir)/tmux
-reptyr = $(src_dir)/reptyr
 tig = $(src_dir)/tig
 go = $(HOME)/go
 linux = $(src_dir)/linux
@@ -16,14 +15,13 @@ repo_vim = git@github.com:vim/vim.git
 repo_git = git://git.kernel.org/pub/scm/git/git.git
 repo_git_manpages = git://git.kernel.org/pub/scm/git/git-manpages.git
 repo_tmux = git@github.com:tmux/tmux
-repo_reptyr = git://github.com/nelhage/reptyr.git
 repo_tig = git://github.com/jonas/tig.git
 repo_go = https://code.google.com/p/go
 repo_linux = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 repo_openbox = git://github.com/danakj/openbox.git
 repo_passwordstore = git://github.com/zx2c4/password-store.git
 
-often = updatevim updategit updatetmux updateopenbox updatereptyr
+often = updatevim updategit updatetmux updateopenbox
 all:    $(often)
 
 # Update
@@ -37,9 +35,6 @@ updategit: $(git) $(git-manpages)
 	cd $(git) && git pull --rebase && \
 	sh $(CURDIR)/git.sh
 
-updatereptyr: $(reptyr)
-	cd $(reptyr) && git pull --rebase && \
-	sh $(CURDIR)/reptyr.sh
 updatetmux: $(tmux)
 	cd $(tmux) && git pull --rebase && \
 	sh $(CURDIR)/tmux.sh
@@ -49,7 +44,7 @@ updatetig: $(tig)
 	sh $(CURDIR)/tig.sh
 
 updatego: $(go)
-	cd $(go) && hg pull -u && \
+	cd $(go) && git pull --rebase && \
 	sh $(CURDIR)/go.sh
 
 updateperf: $(linux)
@@ -72,9 +67,6 @@ $(vim):
 
 $(git):
 	@echo [CLONE] git; git clone $(repo_git) $@
-
-$(reptyr):
-	@echo [CLONE] reptyr; git clone $(repo_reptyr) $@
 
 $(tmux):
 	@echo [CLONE] tmux; git clone $(repo_tmux) $@
