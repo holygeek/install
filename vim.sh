@@ -8,11 +8,14 @@ with_x=
 if [ "$os" = Linux ]; then
 	with_x=--with-x
 fi
-#$linefan CC=clang ./configure \
+
+python3=$(which python3)
+if [ -z "$python3" ]; then echo "no python3 found"; exit 1; fi
 $linefan ./configure \
     --enable-multibyte \
-    --enable-pythoninterp=yes \
+    --enable-python3interp=yes \
     --prefix=${prefix:-/usr/local} \
+    --with-python-command=$python3 \
     $with_x \
     --with-features=huge &&
 $linefan make -f Makefile -j4 $INSTALL &&
