@@ -11,10 +11,10 @@ linux = $(src_dir)/linux
 openbox = $(src_dir)/openbox
 passwordstore = $(src_dir)/password-store
 
-repo_vim = git@github.com:vim/vim.git
+repo_vim = https://github.com/vim/vim
 repo_git = git://git.kernel.org/pub/scm/git/git.git
 repo_git_manpages = git://git.kernel.org/pub/scm/git/git-manpages.git
-repo_tmux = git@github.com:tmux/tmux
+repo_tmux = https://github.com/tmux/tmux
 repo_tig = git://github.com/jonas/tig.git
 repo_go = https://code.google.com/p/go
 repo_linux = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
