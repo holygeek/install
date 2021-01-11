@@ -21,7 +21,7 @@ repo_linux = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 repo_openbox = git://github.com/danakj/openbox.git
 repo_passwordstore = git://github.com/zx2c4/password-store.git
 
-often = updatevim updategit updatetmux updateopenbox
+often = updatevim updategit updatetmux
 all:    $(often)
 
 # Update
