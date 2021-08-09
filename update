@@ -8,3 +8,4 @@ fi
 for i in $*; do
 	make --no-print-directory -C ~/src/install update$i
 done
+echo "DONE $(date)"
