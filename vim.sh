@@ -18,5 +18,5 @@ $linefan ./configure \
     --with-python-command=$python3 \
     $with_x \
     --with-features=huge &&
-$linefan make -f Makefile -j4 $INSTALL &&
+$linefan make -f Makefile -j$parallel $INSTALL &&
 ${vcs}_update_lastbuilt

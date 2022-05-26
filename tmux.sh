@@ -18,5 +18,5 @@ if [ "$os" = Darwin ]; then
 fi
 
 $linefan ./configure --prefix=/usr/local $configure_opt &&
-$linefan make -j2 install &&
+$linefan make -j$parallel install &&
 ${vcs}_update_lastbuilt

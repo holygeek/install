@@ -43,4 +43,15 @@ case $vcs in
     *) echo "I don't grok $vcs vcs"; exit 1 ;;
 esac
 
+parallel=3
+mach=`uname -s`
+case "$mach" in
+	Linux);;
+	parallel=$(( $(nproc) - 1 ))
+	Darwin;;
+	parallel=$(( $(sysctl -n hw.ncpu) - 1 ))
+	*)
+	;;
+esac
+
 which linefan >/dev/null && linefan="linefan -T -"
