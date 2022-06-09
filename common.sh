@@ -46,11 +46,10 @@ esac
 parallel=3
 mach=`uname -s`
 case "$mach" in
-	Linux);;
-	parallel=$(( $(nproc) - 1 ))
-	Darwin;;
-	parallel=$(( $(sysctl -n hw.ncpu) - 1 ))
+	Linux) parallel=$(( $(nproc) - 1 ));;
+	Darwin) parallel=$(( $(sysctl -n hw.ncpu) - 1 ));;
 	*)
+		:
 	;;
 esac
 
