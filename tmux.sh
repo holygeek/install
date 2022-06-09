@@ -14,7 +14,7 @@ os=`uname`
 configure_opt=
 if [ "$os" = Darwin ]; then
 	# Need utf8proc, brew install utf8proc
-	configure_opt='--enable-utf8proc'
+	configure_opt="CFLAGS=-I/opt/homebrew/include LDFLAGS=-L/opt/homebrew/lib --enable-utf8proc"
 fi
 
 $linefan ./configure --prefix=/usr/local $configure_opt &&
