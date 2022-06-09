@@ -14,4 +14,6 @@ else
 		make --no-print-directory -C ~/src/install prefix=$prefix update$i
 	done
 fi
+make -C ~/src/git-number
+make -C ~/src/install ages
 echo "DONE $(date)"
