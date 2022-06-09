@@ -18,7 +18,7 @@ usage() {
 
 announce() {
     if which figlet >/dev/null; then
-        figlet $(basename $(pwd))
+        figlet $(basename $(pwd))|grep --color=always '.'
     fi
 }
 
