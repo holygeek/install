@@ -1,11 +1,17 @@
 #!/bin/sh
 # update
 # Created: Wed Dec 18 09:14:51 MYT 2013
-if [ -z "$1" ]; then
-	exec make --no-print-directory -C ~/src/install
-fi
+prefix=/usr/local
+plat=$(uname -s)
+case "$plat" in
+	Darwin) prefix=/opt/local;;
+esac
 
-for i in $*; do
-	make --no-print-directory -C ~/src/install update$i
-done
+if [ -z "$1" ]; then
+	make --no-print-directory -C ~/src/install prefix=$prefix
+else
+	for i in $*; do
+		make --no-print-directory -C ~/src/install prefix=$prefix update$i
+	done
+fi
 echo "DONE $(date)"
