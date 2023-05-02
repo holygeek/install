@@ -31,7 +31,7 @@ do
     case "$opt" in
         c) INSTALL= ;;
         f) IGNORE_LASTBUILT=t ;;
-        h) usage ;;
+        h) usage; exit 0;;
         p) prefix="$OPTARG" ;;
     esac
 done
