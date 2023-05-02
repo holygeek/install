@@ -23,7 +23,7 @@ announce() {
 }
 
 d=`dirname $0`
-prefix=
+prefix=$prefix
 INSTALL=install
 IGNORE_LASTBUILT=
 while getopts cfhp: opt
