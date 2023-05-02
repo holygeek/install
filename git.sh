@@ -10,7 +10,7 @@ esac
 
 test -n "$INSTALL" && ${vcs}_exit_if_no_changes Git
 $linefan make PREFIX=${prefix:-/usr/local} \
-    CC=clang \
+    CC=gcc \
     USE_LIBPCRE=YesPlease \
     $libpcredir \
     NO_GETTEXT=YesPlease \
