@@ -14,6 +14,7 @@ if [ -z "$python3" ]; then echo "no python3 found"; exit 1; fi
 $linefan ./configure \
     --enable-multibyte \
     --enable-python3interp=yes \
+    --enable-cscope \
     --prefix=${prefix:-/usr/local} \
     --with-python-command=$python3 \
     $with_x \
