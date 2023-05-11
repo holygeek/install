@@ -1,4 +1,4 @@
-tools = git /usr/local/bin/vim tmux openbox perf go
+tools = /opt/git/bin/git /opt/vim/bin/vim /opt/tmux/bin/tmux openbox perf go
 
 src_dir = $(HOME)/code
 vim = $(src_dir)/vim

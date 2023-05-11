@@ -17,6 +17,14 @@ if [ "$os" = Darwin ]; then
 	configure_opt="CFLAGS=-I/opt/homebrew/include LDFLAGS=-L/opt/homebrew/lib --enable-utf8proc"
 fi
 
-$linefan ./configure --prefix=${prefix:-/usr/local} $configure_opt &&
+prefix=/opt/tmux
+if [ -d $prefix ]; then
+	if [ -d "$prefix.old" ]; then
+		rm -rf $prefix.old
+	fi
+	mv $prefix $prefix.old
+fi
+
+$linefan ./configure --prefix=$prefix $configure_opt &&
 $linefan make -j$parallel install &&
 ${vcs}_update_lastbuilt
