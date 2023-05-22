@@ -26,5 +26,5 @@ if [ -d $prefix ]; then
 fi
 
 $linefan ./configure --prefix=$prefix $configure_opt &&
-$linefan make -j$parallel install &&
+$linefan make prefix=$prefix -j$parallel install &&
 ${vcs}_update_lastbuilt
